@@ -10,6 +10,7 @@
 file = open('input.txt', 'r')
 text = file.read().split()
 file.close()
+
 dict_of_words = {}
 
 for word in text:
