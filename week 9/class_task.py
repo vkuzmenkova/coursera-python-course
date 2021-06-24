@@ -3,15 +3,15 @@ import copy as cp
 
 
 class Matrix:
-    def __init__(self, list_of_lists=None):
-        if list_of_lists is None:
-            list_of_lists = []
+    def __init__(self, in_list=None):
+        if in_list is None:
+            self.in_list = []
         else:
-            self.list_of_lists = cp.deepcopy(list_of_lists)
+            self.in_list = cp.deepcopy(in_list)
 
     def __str__(self):
         matrix_str = ''
-        for inner_list in self.list_of_lists:
+        for inner_list in self.in_list:
             for number in inner_list:
                 matrix_str += f"{number}\t"
             matrix_str = matrix_str[0:-1]
@@ -21,8 +21,33 @@ class Matrix:
 
         return matrix_str
 
+    def __add__(self, other):
+
+        res_matrix = []
+        for i in range(self.size()[0]):
+            line = []
+            for j in range(self.size()[1]):
+                line.append(self.in_list[i][j] + other.in_list[i][j])
+            res_matrix.append(line)
+
+        return Matrix(res_matrix)
+
+    def __mul__(self, other):
+
+        res_matrix = []
+
+        for i in range(self.size()[0]):
+            res_line = []
+            for j in range(self.size()[1]):
+                res_line.append(self.in_list[i][j] * other)
+            res_matrix.append(res_line)
+
+        return Matrix(res_matrix)
+
+    __rmul__ = __mul__
+
     def size(self):
-        return len(self.list_of_lists), len(self.list_of_lists[0])
+        return len(self.in_list), len(self.in_list[0])
 
 
 exec(stdin.read())
