@@ -1,4 +1,5 @@
 from sys import stdin
+import copy as cp
 
 
 class Matrix:
@@ -6,7 +7,7 @@ class Matrix:
         if list_of_lists is None:
             list_of_lists = []
         else:
-            self.list_of_lists = list.copy(list_of_lists)
+            self.list_of_lists = cp.deepcopy(list_of_lists)
 
     def __str__(self):
         matrix_str = ''
