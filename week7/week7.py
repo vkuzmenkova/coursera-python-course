@@ -30,20 +30,7 @@ for i in input_list:
     print(dict_of_cities[i])
 """
 """
-==========Номер появления слова============
-file = open("input.txt", "r")
-list_of_words = file.read().split()
-counts = dict()
-output = ''
-for word in list_of_words:
-    if word in counts:
-        counts[word] += 1
-    else:
-        counts[word] = 0
-    output = output + str(counts[word]) + ' '
 
-print(output)
-file.close()
 """
 """
 ========= Словарь синонимов ========
