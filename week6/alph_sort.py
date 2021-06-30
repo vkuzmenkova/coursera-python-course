@@ -1,4 +1,4 @@
-file = open("input.txt", "r", encoding="utf8")
+file = open("input.txt", "r", encoding="utf-8")
 text = file.read().split('\n')
 file.close()
 
@@ -10,7 +10,10 @@ for line in text:
 
 participants.sort(key=lambda x: x[0])
 
-file = open("output.txt", "w", encoding="utf8")
-for i in participants:
-    file.write(f"{i[0]} {i[1]}\n")
+file = open("output.txt", "w", encoding="utf-8")
+
+for i in range(len(participants) - 1):
+    file.write(f"{participants[i][0]} {participants[i][1]}\n")
+file.write(f"{participants[i][0]} {participants[i][1]}")
+
 file.close()
