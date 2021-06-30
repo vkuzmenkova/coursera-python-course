@@ -4,8 +4,8 @@ out_file = open('output.txt', 'w', encoding='utf8')
 participants = []
 
 for line in in_file:
-    line1 = line.split()
-    participants.append((line1[0], line1[1], line1[3]))
+    temp = line.split()
+    participants.append((temp[0], temp[1], temp[3]))
 
 participants.sort()
 
